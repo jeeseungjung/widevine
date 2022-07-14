@@ -1,0 +1,183 @@
+<!doctype html>
+<!--
+*****************************************************************************
+   LCD TV LABORATORY, LG ELECTRONICS INC., SEOUL, KOREA
+   Copyright(c) 2015 by LG Electronics Inc.
+
+   All rights reserved. No part of this work may be reproduced, stored in a
+   retrieval system, or transmitted by any means without prior written
+   permission of LG Electronics Inc.
+
+*****************************************************************************
+<Quick Notes>
+This page requires "smoothie.js", "mystyle.css" and urls.txt" to be in the same directory .
+"urls.txt" contains urls of MPEG-DASH, Smooth Streaming, HLS, HTTP progressive streams.
+To add/delete urls simply add and remove the urls in the "urls.txt" file.
+Each url should be separated with a newline(ENTER).
+-->
+
+<html>
+<head>
+  <title>TEST FOR WIDEVINE</title>
+  <meta charset=utf-8>
+  <!-- <link rel="stylesheet" type="text/css" href="mystyle.css"> -->
+  <link rel="stylesheet" type="text/css" href="./css/hls_drd.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/webOS.js"></script>
+</head>
+
+<body id="indexPage" style="overflow-y:scroll; overflow: -moz-scrollbars-vertical; overflow-y:auto;">
+
+  <div id="polina">
+    <h1>Widevine Verification Suite v1.0</h1>
+    <p>TV Media Solution Team, 2021</p>
+  </div>
+
+  <div id="polina2">
+    <button type="button" id="reload" >f5</button> <button type="button" id="back">back</button>
+  <!-- <div class="indexLinks">
+    <h1>HLS - webOS 4.0 gld4tv delivery DEMO 용</h1>
+    <a href="./html/demo.html">HLS - webOS 4.0 gld4tv delivery DEMO 용 (2017.07.04)</a><br>
+  </div> -->
+  <div class="indexLinks">
+    <h1>Renewal Tests</h1>
+    <a href="./html/RenewalNoUsage.html">RenewalNoUsage</a><br>
+    <!-- <a href="./html/seturi.html">SIC HLS TEST</a><br> -->
+    <a href="./html/RenewalNoClientId.html">RenewalNoClientId</a><br>
+    <a href="./html/HeartbeatV16">HeartbeatV16</a><br>
+    <a href="./html/RenewalWithUsage.html">RenewalWithUsage</a><br>
+    <a href="./html/RenewalWithClientIdV16">RenewalWithClientIdV16</a><br>
+    <a href="./html/RenewalSingleKe.html">RenewalSingleKey</a><br>
+    <a href="./html/RenewalDelay5SV16.html">RenewalDelay5SV16</a><br>
+    <a href="./html/instant-rate.html">INSTANT RATE TEST 용</a><br>
+    <a href="./html/rtk.html">RTK TEST</a><br>
+    <a href="./html/rtk.html">MSTAR TEST</a><br>
+    <a href="./html/dash_codec_change.html">DASH CODEC CHANGE</a><br>
+  </div>
+  <div class="indexLinks">
+    <h1>QE/QA test용</h1>
+    <a href="./html/8k-drm-qtest.html">8K DRM QE/QA Test</a><br>
+    <a href="./html/all-protocols.html"> Streaming Test</a><br>
+    <a href="./mss-test-app/mss-manual-test.html"">MSS QE/QA 확인용</a><br>
+    <a href="./html/qa.html">TVPM - HLS QE/QA 확인용</a><br>
+    <a href="./html/dash_q.html">[TVPM-8564][TVPM-7740] DASH QE/QA 확인용</a><br>
+    <!-- <a href="./html/qe.html">QE/QA 확인용 [TVPM]</a><br>
+    <a href="./html/qa_eos.html">HLS fMP4 + ttml</a><br>
+    <a href="http://teamhls.iptime.org/hls-verification-suite/html/hlsjs.html"> MSE/EME hls.js audio samplerate change</a>
+    <a href="./html/qaseturi.html">QE/QA Live Stream EOS 확인용</a><br>
+    <a href="./html/seturi.html">SET_URI TEST 용</a><br>
+    <a href="./html/qa2.html">QE/QA 채널플러스 generic stream 재생 확인용</a><br> -->
+  </div>
+  <div class="indexLinks">
+    <h1>MICROSOFT SMOOTH STREAMING TEST LINKS</h1>
+    <a href="./mss-test-app/mss-auto-system-test.html" id="mssSystemTest">MSS SYSTEM TEST AUTOMATION</a>
+    <a href="./mss-test-app/mss-manual-test.html">Microsoft Smooth Streaming Tests</a>
+    <a href="./webrtc.html">webrtc Tests</a>
+  </div>
+  <div class="indexLinks">
+    <h1>MPEG-DASH TEST LINKS</h1>
+    <a href="./html/dashif_test_assets.html"> DASH IF Test Assets</a><br>
+    <a href="./html/csvtest.html"> DASH IF Test Assets - Classified by Feature Group</a><br>
+    <a href="./html/dash-test-191223.html">DASH Test</a><br>
+    <a href="./html/dash_test.html">DASH Unload Test</a><br>
+    <a href="http://tvmedia-streaming.lge.com/dash/testdash/">Paul's DASH Test</a><br>
+    <a href="http://tvmedia-streaming.lge.com/dash/multitrack/">Paul's multitrack time Test</a><br>
+    <a href="http://teamhls.iptime.org/player/mpeg-dash-PR.HTML">Error DASH Test GKSPRT-443 [Player] 4k on LG webOS</a><br>
+  </div>
+  <!-- <div class="indexLinks">
+    <h1>HLS Current Hot Issue Sreams</h1>
+    <a href="./html/stress_test.html">HLS Main Test Page</a><br>
+    <a href="./html/audio_only.html">AUDIO HLS Main Test Page</a><br>
+    <a href="./html/dtscert.html">HLS streaming test cases for DTS Certification</a><br>
+    <a href="./html/hls_eurofins.html">HLS Test Suite From Eurofins Digital Testing</a><br>
+    <a href="./html/hot.html">Current Hot Issue Streams</a><br>
+    <a href="./html/bitrate.html">bitrate implementation test</a><br>
+    <a href="./html/preload.html"> Preload test</a><br>
+    <a href="./html/ss.html">SAMSUNG Test</a><br>
+    <a href="./html/audio_test.html">Audio Test</a><br>
+    <a href="./html/temp.html">Temp</a><br>
+  </div> -->
+  <div class="indexLinks">
+    <!-- <a href="./html/HLS_P1_P2_P3_Test_Cases.html">HLS P1 P2 P3 Test Cases</a> -->
+    <a href="./html/temp.html">All Streaming Protocols with Girafficava ON/OFF</a><br>
+    <a href="./html/load-test.html">LOAD-TEST</a><br>
+    <a href="./html/hls.html">HLS Master Test Page</a>
+  </div>
+
+  <div class="indexLinks">
+    <h1>HLS Advanced Streams</h1>
+    <a href="http://www.radiofeeds.co.uk/other.asp">HLS Advanced Streams</a><br>
+  </div>
+  <div class="indexLinks">
+    <h1>Tests for EXT-X-MEDIA</h1>
+    <a href="./html/hls_media.html">All EXT-X-MEDIA Test Cases</a><br>
+    <a href="https://www.twitch.tv/">https://www.twitch.tv/ (Ignore VIDEO type, single TS pipeline - one push)</a><br>
+  </div>
+  <div class="indexLinks">
+    <h1>Tests for Dynamic Stream Change - Playbin3</h1>
+      <a href="./html/hls_dsc.html"a>Test for Dynamic Stream Change</a>
+  </div>
+  <div class="indexLinks">
+    <h1>Tests for EXT-X-DISCONTINUITY</h1>
+      <a href="./html/discontinuity.html"a>Test contents with EXT-X-DISCONTINUITY [GKSPRT-284]</a>
+  </div>
+  <div class="indexLinks">
+    <h1>Tests for EXT-X-BYTERANGE</h1>
+    <a href="./html/byterange.html">Test contents with EXT-X-BYTERANGE</a>
+  </div>
+  <div class="indexLinks">
+    <h1>HLS Basic Operation</h1>
+    <a href="./html/resume_play.html">Resume Play</a><br>
+    <a href="./html/hlsv3_live.html">HLS v3 LIVE streams</a>
+    <a href="./html/hls_drm.html">DRM EXT-X-MEDIA Tag Multi Audio Test</a>
+    <a href="https://urldefense.proofpoint.com/v2/url?u=http-3A__d9zmmjtv72w5o.cloudfront.net_OnDelKits_AC-2D4_Dolby-5FOnline-5FDelivery-5FAC-2D4-5FSystem-5FDevelopment-5FKit-5F1.2_Start-5FHere.html&d=DQMDaQ&c=lI8Zb6TzM3d1tX4iEu7bpg&r=SXdle0yS67v6rWaTTEB7MWucuM4YpRtFeMeWWvxDS3c&m=6zPLp-vMmbPTCmX231NskaIRDdRFyhBhF-1gs3J6qC0&s=AAYAvYBMq1Sw3Z68MgAyaa-xpSBk9PvwfTzQ3ck0ssE&e=">DO not use</a>
+    <a href="./html/LG-player.html"> Preload </a>
+    <a href="http://10.186.121.34/hwachin.lee/slingtest/qa_204/index.html"> sling tv </a>
+    <a href="http://video.cnbc.com/gallery"> video.cnbc.com/gallery </a>
+    <a href="./html/hlsjs.html"> DAILYMOTION hls.js</a>
+    <a href="https://developer.apple.com/streaming/examples/">Apple Streaming</a>
+  </div>
+
+  <div class="indexLinks_right">
+    <h1>HLS TV DEV Test Cases</h1>
+    <a href="./html/hls-tv-dev-tc.html">HLS - TV DEV Test Cases</a>
+    <a href="./html/hls-tv-dev-tc-small.html">HLS - TV DEV Test Cases small</a>
+    <a href="./html/preload-resume.html">[TVDEVTC-1688] Resume play with preload</a><br>
+    <a href="./html/load_seek_play.html">[TVDEVTC-980] LOAD-SEEK-PLAY</a><br>
+    <a href="./html/bitrate-option-tc.html">[TVDEVTC-396] Bitrate option test case </a><br>
+    <a href="./html/widevine_5.html">WIDEVINE</a>
+    <a href="http://d9zmmjtv72w5o.cloudfront.net/OnDelKits/DDP/Dolby_Digital_Plus_Online_Delivery_Kit_v1.4/Test_Signals/muxed_streams/HLS/HLS_Muxed_Streams.html"> WIP </a>
+    <a href="./html/demo.html">HLS - webOS 4.5 gld4tv delivery DEMO 용 (2018)</a><br>
+    <a href="./html/stress_test.html">HLS Main Test Page</a><br>
+    <a href="./html/hls-main-test.html">HLS Main Test Page small video</a><br>
+    <a href="http://teamhls.iptime.org/dash-test/dash-test-for-soc.html">dash-test-for-soc</a><br>
+    <a href="./html/loop.html">LOOP</a><br>
+    <a href="./html/temp.html">All Streaming Protocols with Girafficava ON/OFF</a><br>
+    <a href="./html/invalid-manifest-exception.html">Invalid manifest exception</a><br>
+    <a href="http://tvmedia-streaming.lge.com/dash/hfr/index.html"> HFR Test</a><br>
+    <a href="http://tvmedia-streaming.lge.com/dash/gibbs/"> gibbs Test</a><br>
+    <a href="./html/dvr-test.html">DVR TEST</a>
+    <a href="http://teamhls.iptime.org/hls-verification-suite/html/hlsjs.html"> MSE/EME dash.js</a>
+    <a href="http://teamhls.iptime.org/hls-js-backup.html"> MSE/EME hls.js</a>
+    <a href="http://www.selatesting.com/DEV/foxsports-quickbuild/LG_TEST/webos"> FOX</a>
+    <a href="http://10.186.115.199/dash/multitrack/"> PAUL multitrack</a>
+    <a href="http://tvmedia-streaming.lge.com/dash">JUNSOO DASH</a>
+    <a href="http://tvmedia-streaming.lge.com/dash/portal.html">DASH PORTAL - come on</a>
+    <a href="./html/dash_harmonic.html">DASH HARMONIC URLS</a>
+    <a href="http://teamhls.iptime.org/hls-verification-suite/streaming-protocols-test-automation/hls-system-test.html" id="hlsSystemTest">HLS SYSTEM TEST AUTOMATION </a>
+    <a href="http://teamhls.iptime.org/hls-verification-suite/streaming-protocols-test-automation/dash-system-test.html" id="dashSystemTest">MPEGDASH SYSTEM TEST AUTOMATION</a>
+    <a href="http://teamhls.iptime.org/hls-verification-suite/streaming-protocols-test-automation/gibbs-system-test.html" id="gibbsSystemTest">GIBBSPLAYER SYSTEM TEST AUTOMATION</a>
+    <a href="http://10.186.115.44/widevine_eme_mse.html">DRM TEST</a>
+    <a href="./mss-test-app/mss-manual-test.html">Microsoft Smooth Streaming Tests</a>
+    <a href="./mss-test-app/mss-auto-system-test.html" id="mssSystemTest">MSS SYSTEM TEST AUTOMATION</a>
+    <!-- <a href="./mss-test-app/mss-tvdevtc.html" id="mssTvdevtc>MSS TVDEVTC Zephyr Test Cases</a> -->
+  </div>
+
+  <div class="indexLinks">
+    <h1>Microsoft Smooth Streaming</h1>
+    <a href="./mss-test-app/mss-manual-test.html">Microsoft Smooth Streaming Tests</a>
+    <a href="http://10.186.118.194/testdrm">DRM TEST (YSH)</a>
+  </div>
+
+</body>
+</html>

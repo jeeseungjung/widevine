@@ -1,0 +1,129 @@
+<!doctype html>
+<!--
+*****************************************************************************
+   LCD TV LABORATORY, LG ELECTRONICS INC., SEOUL, KOREA
+   Copyright(c) 2015 by LG Electronics Inc.
+
+   All rights reserved. No part of this work may be reproduced, stored in a
+   retrieval system, or transmitted by any means without prior written
+   permission of LG Electronics Inc.
+
+*****************************************************************************
+<Quick Notes>
+This page requires "smoothie.js", "mystyle.css" and urls.txt" to be in the same directory .
+"urls.txt" contains urls of MPEG-DASH, Smooth Streaming, HLS, HTTP progressive streams.
+To add/delete urls simply add and remove the urls in the "urls.txt" file.
+Each url should be separated with a newline(ENTER).
+-->
+
+<html>
+<head>
+  <title>TEST FOR WIDEVINE</title>
+  <meta charset=utf-8>
+  <!-- <link rel="stylesheet" type="text/css" href="mystyle.css"> -->
+  <link rel="stylesheet" type="text/css" href="./css/hls_drd.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/webOS.js"></script>
+</head>
+
+<body id="indexPage" style="overflow-y:scroll; overflow: -moz-scrollbars-vertical; overflow-y:auto;">
+
+  <div id="polina">
+    <h1>Widevine Verification Suite v1.0</h1>
+    <p>TV Media Solution Team, 2021</p>
+  </div>
+
+  <div id="polina2">
+    <button type="button" id="reload" >f5</button> <button type="button" id="back">back</button>
+  <!-- <div class="indexLinks">
+    <h1>HLS - webOS 4.0 gld4tv delivery DEMO 용</h1>
+    <a href="./html/demo.html">HLS - webOS 4.0 gld4tv delivery DEMO 용 (2017.07.04)</a><br>
+  </div> -->
+  <div class="indexLinks">
+    <h1>Play Test</h1>
+    <a href="./NormalPlay.html">NormalPlay</a><br>
+  </div>
+  <div class="indexLinks">
+    <h1>Renewal Tests</h1>
+    <a href="./RenewalNoUsage.html">RenewalNoUsage</a><br>
+    <!-- <a href="./html/seturi.html">SIC HLS TEST</a><br> -->
+    <a href="./RenewalNoClientId.html">RenewalNoClientId</a><br>
+    <a href="./HeartbeatV16.html">HeartbeatV16</a><br>
+    <a href="./RenewalWithUsage.html">RenewalWithUsage</a><br>
+    <a href="./RenewalWithClientIdV16.html">RenewalWithClientIdV16</a><br>
+    <a href="./RenewalSingleKey.html">RenewalSingleKey</a><br>
+    <a href="./RenewalDelay5SV16.html">RenewalDelay5SV16</a><br>
+    <a href="./RenewalDelay13S.html">RenewalDelay13S</a><br>
+    <a href="./RenewalOutsideRecoveryWindowV16.html">RenewalOutsideRecoveryWindowV16</a><br>
+  </div>
+  <div class="indexLinks">
+    <h1>License/Playback/Rental Durations</h1>
+    <a href="./30SecondLicenseDuration.html">30SecondLicenseDuration</a><br>
+    <a href="./1SecondLicenseDuration.html">1SecondLicenseDuration</a><br>
+    <a href="./1SecondPlaybackDuration.html">1SecondPlaybackDuration</a><br>
+    <a href="./60SecondLicenseDuration.html">60SecondLicenseDuration</a><br>
+    <a href="./60SecondPlaybackDuration.html">60SecondPlaybackDuration</a><br>
+    <a href="./LongLicenseShortPlayback.html">LongLicenseShortPlayback</a><br>
+    <a href="./ShortLicenseLongPlayback.html">ShortLicenseLongPlayback</a><br>
+    <a href="./20SLicense0SPlayback.html">20SLicense0SPlayback</a><br>
+    <a href="./0SLicense20SPlayback.html">0SLicense20SPlayback</a><br>
+    <a href="./0SLicense40SPlayback.html">0SLicense40SPlayback</a><br>
+    <a href="./50YLicense50YPlayback.html">50YLicense50YPlayback</a><br>
+    <a href="./0SLicense20SPlaybackStart1979.html">0SLicense20SPlaybackStart1979</a><br>
+    <a href="./LicenseStart2030.html">LicenseStart2030</a><br>
+    <a href="./0SLicenseStart2030.html">0SLicenseStart2030</a><br>
+    <a href="./Rental20sSoftPlayback40sHard.html">Rental20sSoftPlayback40sHard</a><br>
+    <a href="./Rental20sSoftPlayback40sSoft.html">Rental20sSoftPlayback40sSoft</a><br>
+    <a href="./Rental30sSoftPlayback0s.html">Rental30sSoftPlayback0s</a><br>
+    <a href="./Rental40sSoftPlayback20sHard.html">Rental40sSoftPlayback20sHard</a><br>
+    <a href="./Rental40sSoftPlayback20sSoft.html">Rental40sSoftPlayback20sSoft</a><br>
+    <a href="./Rental20sHardPlayback40sHard.html">Rental20sHardPlayback40sHard</a><br>
+    <a href="./Rental20sHardPlayback40sSoft.html">Rental20sHardPlayback40sSoft</a><br>
+    <a href="./Rental30sHardPlayback0s.html">Rental30sHardPlayback0s</a><br>
+    <a href="./Rental40sHardPlayback20sHard.html">Rental40sHardPlayback20sHard</a><br>
+    <a href="./Rental40sHardPlayback20sSoft.html">Rental40sHardPlayback20sSoft</a><br>
+    <a href="./WithProviderSessionToken.html">WithProviderSessionToken</a><br>
+    <a href="./LongPST.html">LongPST</a><br>
+  </div>
+  <div class="indexLinks_right">
+    <div class="indexLinks">
+      <h1>Policy Enforcement</h1>
+      <a href="./CannotPlay.html">CannotPlay</a><br>
+      <a href="./LicenseExpiredV16.html">LicenseExpiredV16</a><br>
+      <a href="./UnrelatedLicense.html">UnrelatedLicense</a><br>
+    </div>
+    <div class="indexLinks">
+      <h1>Crypto Operations</h1>
+      <a href="./L1SoftwareSecureCryptoRequired.html">L1SoftwareSecureCryptoRequired</a><br>
+      <a href="./L1SoftwareSecureDecoderRequired.html">L1SoftwareSecureDecoderRequired</a><br>
+      <a href="./L1HardwareSecureCryptoRequired.html">L1HardwareSecureCryptoRequired</a><br>
+      <a href="./L1HardwareSecureDecodeRequired.html">L1HardwareSecureDecodeRequired</a><br>
+      <a href="./L1SecureVideoPathRequired.html">L1SecureVideoPathRequired</a><br>
+    </div>
+    <div class="indexLinks">
+      <h1>HDCP Output Protection</h1>
+      <a href="./L1PlayHDCPNotSpecified.html">L1PlayHDCPNotSpecified</a><br>
+      <a href="./L1PlayHDCPV1Required.html">L1PlayHDCPV1Required</a><br>
+      <a href="./L1PlayHDCPV2Required.html">L1PlayHDCPV2Required</a><br>
+      <a href="./L1PlayHDCPV2_1Required.html">L1PlayHDCPV2_1Required</a><br>
+      <a href="./L1PlayHDCPV2_2Required.html">L1PlayHDCPV2_2Required</a><br>
+      <a href="./L1PlayHDCPV2_3Required.html">L1PlayHDCPV2_3Required</a><br>
+      <a href="./L1PlayHDCPNotRequired.html">L1PlayHDCPNotRequired</a><br>
+      <a href="./L1PlayHDCPNoDigitalOutput.html">L1PlayHDCPNoDigitalOutput</a><br>
+    </div>
+    <div class="indexLinks">
+      <h1>Offline</h1>
+      <a href="./Offline0SecondLicense20SPlayback.html">Offline0SecondLicense20SPlayback</a><br>
+      <a href="./OfflineLicenseExpiredV16.html">OfflineLicenseExpiredV16</a><br>
+      <a href="./OfflineCannotPersist.html">OfflineCannotPersist</a><br>
+      <a href="./OfflineWithProviderSessionToken.html">OfflineWithProviderSessionToken</a><br>
+    </div>
+    <div class="indexLinks">
+      <h1>Entitlement License</h1>
+      <a href="./EntitlementLicense.html">EntitlementLicense</a><br>
+      <!-- <a href="./mss-test-app/mss-tvdevtc.html" id="mssTvdevtc>MSS TVDEVTC Zephyr Test Cases</a> -->
+    </div>
+  </div>
+
+</body>
+</html>
